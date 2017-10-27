@@ -64,6 +64,7 @@
         data(){
             return {
                 goodsList:[],
+                sortFlag:1,
                 priceFilter:[
                     {
                         startPrice:"0.00",
@@ -84,10 +85,10 @@
             }
         },
         mounted:function(){
-            this.getGoodsList();
+            this._getGoodsList();
         },
         methods:{
-            getGoodsList(){
+            _getGoodsList(){
                 axios.get("/api/goods").then((result)=>{
                     let res = result.data;
                     this.goodsList = res.result; 
